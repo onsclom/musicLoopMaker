@@ -15,16 +15,14 @@ h1 {
 }
 
 .drumMachine {
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    width: 80vw;
     margin: 20px auto;
 }
 
 .drumRow {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
+
 }
 
 .drumLabelContainer {
@@ -69,7 +67,29 @@ h1 {
 }
 
 .drumMachineBackground {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0 1rem 0 0;
     background-color: rgb(37, 37, 37);
     border-radius: 1rem;
     box-shadow: 5px 5px 15px 5px #000000;
+}
+
+@media only screen and (max-width: 840px) {
+    .drumLabelContainer {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .checkbox {
+        width: 2rem;
+        height: 2rem;
+        margin: .1rem;
+    }
+    
+    .checkboxMain {
+        width: 2rem;
+        height: 2rem;
+        margin: .1rem;
+    }
 }
