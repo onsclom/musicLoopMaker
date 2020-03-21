@@ -70,11 +70,11 @@ function addBeat(element) {
     }
     else if (row == "closedRow")
     {
-        snareRow[beat-1] = true;
+        closedRow[beat-1] = true;
     }
     else if (row == "openRow")
     {
-        snareRow[beat-1] = true;
+        openRow[beat-1] = true;
     }
 }
 
@@ -93,21 +93,58 @@ function removeBeat(element) {
     }
     else if (row == "closedRow")
     {
-        snareRow[beat-1] = false;
+        closedRow[beat-1] = false;
     }
     else if (row == "openRow")
     {
-        snareRow[beat-1] = false;
+        openRow[beat-1] = false;
     }
 }
 
 let playing = false;
+let bpm = 80;
+let curTick = 0;
 function togglePlay(element) {
     if (playing) {
         element.src = "svgs/play.svg";
+        playing = false;
     }
     else {
         element.src = "svgs/pause.svg";
+        playing = true;
+        drumLoop();
     }
-    playing = !playing;
+}
+
+function drumLoop() {
+    if (playing)
+    {
+        curTick %= 16;
+        console.log(curTick);
+
+        if (kickRow[curTick] == true)
+        {
+            var snd = new Audio("drums/kick.wav"); // buffers automatically when created
+            snd.play()
+        }
+        if (snareRow[curTick] == true)
+        {
+            var snd = new Audio("drums/snare.wav"); // buffers automatically when created
+            snd.play()
+        }
+        if (closedRow[curTick] == true)
+        {
+            var snd = new Audio("drums/closed.wav"); // buffers automatically when created
+            snd.play()
+        }
+        if (openRow[curTick] == true)
+        {
+            var snd = new Audio("drums/open.wav"); // buffers automatically when created
+            snd.play()
+        }
+
+        curTick += 1;
+        setTimeout(drumLoop, ((1/bpm)*60*1000)/4);
+    }
+
 }
