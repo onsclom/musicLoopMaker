@@ -1,4 +1,5 @@
 let checkboxes = [...document.querySelectorAll(".checkboxMain"), ...document.querySelectorAll(".checkbox")];
+let indicators = document.getElementById("indicatorRow").childNodes;
 
 kickRow = [];
 snareRow = [];
@@ -108,10 +109,18 @@ function togglePlay(element) {
     if (playing) {
         element.src = "svgs/play.svg";
         playing = false;
+        for (let indicator of indicators)
+        {
+            if (indicator.classList && indicator.classList.contains("active"))
+            {
+                indicator.classList.remove("active");
+            }
+        }
     }
     else {
         element.src = "svgs/pause.svg";
         playing = true;
+        curTick = 0;
         drumLoop();
     }
 }
@@ -120,6 +129,24 @@ function drumLoop() {
     if (playing)
     {
         curTick %= 16;
+
+        for (let indicator of indicators)
+        {
+            if (indicator.id == curTick+1)
+            {
+                console.log("Triggered!");
+                indicator.classList.add("active");
+            }
+            else
+            {
+                if (indicator.classList && indicator.classList.contains("active"))
+                {
+                    indicator.classList.remove("active");
+                }
+                //indicator.classList.remove("active");
+            }
+        }
+
         console.log(curTick);
 
         if (kickRow[curTick] == true)
