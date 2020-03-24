@@ -102,28 +102,53 @@ h1 {
 }
 
 .beatIndicator {
-    width: 3rem;
+    width: 4vw;
     margin: 0rem 0 0 0;
     opacity: 1;
 }
 
+.transparent {
+    width: 4vw;
+    height: 1.5vw;
+    margin: .2vw;
+}
 
 
-@media only screen and (max-width: 840px) {
-    .drumLabelContainer {
+
+@media only screen and (max-width: 52.5rem) {
+     .drumLabelContainer {
         height: 4rem;
         width: 4rem;
+    }
+
+    .beatIndicator {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    .transparent {
+        height: .5rem;
+        width: 2rem;
+        margin: .1rem;
+    }
+
+    .empty {
+        height: .05rem;
     }
 
     .checkbox {
         width: 2rem;
         height: 2rem;
         margin: .1rem;
-    }
-    
+    }    
     .checkboxMain {
         width: 2rem;
         height: 2rem;
         margin: .1rem;
-    }
+    } 
+
+}
+
+@media only screen and (min-width: 52.5rem) {
+
 }
