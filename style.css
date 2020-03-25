@@ -117,7 +117,7 @@ h1 {
 
 @media only screen and (max-width: 52.5rem) {
      .drumLabelContainer {
-        height: 4rem;
+        height: 3.5rem;
         width: 4rem;
     }
 
@@ -149,6 +149,35 @@ h1 {
 
 }
 
-@media only screen and (min-width: 52.5rem) {
+@media only screen and (min-width: 62.5rem) {
+    .drumLabelContainer {
+        height: calc(3.5rem*(62.5/52.5));
+        width: calc(4rem*(62.5/52.5));
+    }
 
+    .beatIndicator {
+        height: calc(2rem*(62.5/52.5));
+        width: calc(2rem*(62.5/52.5));
+    }
+
+    .transparent {
+        height: calc(.5rem*(62.5/52.5));
+        width: calc(2rem*(62.5/52.5));
+        margin: calc(.1rem*(62.5/52.5));
+    }
+
+    .empty {
+        height: calc(.05rem*(62.5/52.5));
+    }
+
+    .checkbox {
+        width: calc(2rem*(62.5/52.5));
+        height: calc(2rem*(62.5/52.5));
+        margin: calc(.1rem*(62.5/52.5));
+    }    
+    .checkboxMain {
+        width: calc(2rem*(62.5/52.5));
+        height: calc(2rem*(62.5/52.5));
+        margin: calc(.1rem*(62.5/52.5));
+    } 
 }
